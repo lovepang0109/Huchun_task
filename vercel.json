@@ -11,7 +11,7 @@
         },
         {
             "src": "/config.js",
-            "dest": "public/$1"
+            "dest": "public/config.js"
         },
         {
             "src": "/favicon.ico",
