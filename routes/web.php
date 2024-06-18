@@ -20,4 +20,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/kkk', [HomeController::class, 'kkk']);
 
+Route::get('/api/v1/aaa', [HomeController::class, 'kkk']);
+
+
 
