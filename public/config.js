@@ -2,8 +2,13 @@ var configData = {
     /* 开发配置 */
     // VUE_APP_BASE_API: 'https://panel.nvia.com/api/v1',
     // APP_BASE_URL:     "https://panel.nvia.com/",
-    VUE_APP_BASE_API: 'http://localhost:8001/api/v1',
-    APP_BASE_URL:     "http://localhost:8001/",
+    // VUE_APP_BASE_API: 'http://localhost:8001/api/v1',
+    // APP_BASE_URL:     "http://localhost:8001/",
+
+    VUE_APP_BASE_API: 'https://huchun-task.vercel.app/api/v1',
+    APP_BASE_URL:     "https://huchun-task.vercel.app/",
+    
+
     SystemName: 'PanelSMS',
     AccountOverDays: 180,
     SessionTimeout: 15, // session有效时间,单位：分钟
