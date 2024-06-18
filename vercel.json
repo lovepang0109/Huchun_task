@@ -23,7 +23,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_KEY": "base64:OHVHcRHMErSX1OeLE2WC6kpT2/FeHF0D5SaQPr6rxEE=",
-        "APP_URL": "https://php-laravelhuchun.vercel.app",
+        "APP_URL": "https://huchun-task.vercel.app/",
         "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
