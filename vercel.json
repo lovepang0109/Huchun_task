@@ -18,6 +18,7 @@
         "APP_NAME": "Vercel Laravel",
         "APP_ENV": "production",
         "APP_DEBUG": "true",
+        "APP_KEY": "base64:OHVHcRHMErSX1OeLE2WC6kpT2/FeHF0D5SaQPr6rxEE=",
         "APP_URL": "https://php-laravelhuchun.vercel.app",
         "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
