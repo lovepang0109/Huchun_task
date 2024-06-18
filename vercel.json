@@ -32,6 +32,9 @@
         }
        
     ],
+    
+    "rewrites": [{ "source": "/api/v1/(.*)", "destination": "/api/index.php" }],
+
     "env": {
         "APP_NAME": "Vercel Laravel",
         "APP_ENV": "production",
