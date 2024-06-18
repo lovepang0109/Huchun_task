@@ -4,36 +4,36 @@
         { "src": "/api/index.php", "use": "vercel-php@0.5.5" },
         { "src": "/public/**", "use": "@vercel/static" }
     ],
-    "routes": [
-        {
-            "src": "/(assets|flags|json|langs|ssl)/(.*)",
-            "dest": "public/$1/$2"
-        },
-        {
-            "src": "/config.js",
-            "dest": "public/config.js"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "public/favicon.ico"
-        },
-        {
-            "src": "/loader.css",
-            "dest": "public/loader.css"
-        },
-        {
-            "src": "/logo.png",
-            "dest": "public/logo.png"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php",
-            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-        }
-       
-    ],
     
-    "rewrites": [{ "source": "/api/v1/(.*)", "destination": "/api/index.php" }],
+
+    "rewrites": [
+
+        { 
+            "source": "/api/v1/(.*)", 
+            "destination": "/api/index.php" 
+        },
+         { 
+            "source": "/(assets|flags|json|langs|ssl)/(.*)", 
+            "destination": "public/$1/$2" 
+        },
+         { 
+            "source": "/config.js", 
+            "destination": "public/config.js" 
+        },
+         { 
+            "source": "/favicon.ico", 
+            "destination": "public/favicon.ico" 
+        },
+         { 
+            "source": "/loader.css", 
+            "destination": "public/loader.css" 
+        },
+         { 
+            "source": "/logo.png", 
+            "destination": "public/logo.png" 
+        }
+
+    ],
 
     "env": {
         "APP_NAME": "Vercel Laravel",
