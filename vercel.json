@@ -11,7 +11,7 @@
         },
         {
             "src": "/config.js",
-            "dest": "public/config.js"
+            "dest": "public/$1"
         },
         {
             "src": "/favicon.ico",
@@ -28,7 +28,7 @@
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
-        },
+        }
        
     ],
     "env": {
