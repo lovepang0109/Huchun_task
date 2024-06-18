@@ -31,7 +31,7 @@
             "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
         },
         {
-            "src": "/api/v1/.*",
+            "src": "/api/v1/aaa",
             "dest": "/api/index.php",
             "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
         }
