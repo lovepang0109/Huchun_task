@@ -4,38 +4,38 @@
         { "src": "/api/index.php", "use": "vercel-php@0.5.5" },
         { "src": "/public/**", "use": "@vercel/static" }
     ],
-    
-
-    "rewrites": [
-        { 
-            "source": "/(.*)", 
-            "destination": "/api/index.php" 
+    "routes": [
+        {
+            "src": "/(assets|flags|json|langs|ssl)/(.*)",
+            "dest": "public/$1/$2"
         },
-        { 
-            "source": "/api/v1/(.*)", 
-            "destination": "/api/index.php" 
+        {
+            "src": "/config.js",
+            "dest": "public/config.js"
         },
-         { 
-            "source": "/(assets|flags|json|langs|ssl)/(.*)", 
-            "destination": "public/$1/$2" 
+        {
+            "src": "/favicon.ico",
+            "dest": "public/favicon.ico"
         },
-         { 
-            "source": "/config.js", 
-            "destination": "public/config.js" 
+        {
+            "src": "/loader.css",
+            "dest": "public/loader.css"
         },
-         { 
-            "source": "/favicon.ico", 
-            "destination": "public/favicon.ico" 
+        {
+            "src": "/logo.png",
+            "dest": "public/logo.png"
         },
-         { 
-            "source": "/loader.css", 
-            "destination": "public/loader.css" 
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php",
+            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
         },
-         { 
-            "source": "/logo.png", 
-            "destination": "public/logo.png" 
+        {
+            "src": "/api/v1/(.*)",
+            "dest": "/api/index.php",
+            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
         }
-
+       
     ],
 
     "env": {
