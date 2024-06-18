@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard -AMS</title>
+    <title>Panel-SMS</title>
     <link rel="stylesheet" type="text/css" href="/loader.css" />
     <script src="/config.js"></script>
-  <script type="module" crossorigin src="/assets/index.9ae21109.js"></script>
-  <link rel="stylesheet" href="/assets/index.1a379009.css">
+  <script type="module" crossorigin src="/assets/index.84400ea8.js"></script>
+  <link rel="stylesheet" href="/assets/index.8dc757e4.css">
 </head>
 
 <body>

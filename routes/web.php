@@ -14,4 +14,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/{any}', [HomeController::class, 'index'])->where('any', '^(?!api).*$');
+// Route::get('/{any}', [HomeController::class, 'index'])->where('any', '^(?!api).*$');
+
+Route::get('/', [HomeController::class, 'index']);
+
