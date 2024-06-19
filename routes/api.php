@@ -11,6 +11,8 @@ use App\Http\Controllers\PricingController;
 use App\Http\Controllers\QualityController;
 use App\Http\Controllers\RoutingController;
 
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,7 +28,10 @@ use App\Http\Controllers\RoutingController;
 //     return $request->user();
 // });
 
+   
 Route::prefix('v1')->group( function(){
+
+    Route::get('/rrr', [HomeController::class, 'kkk']);
 
     Route::post('login',                [ApiController::class, 'login']);
     Route::post('dashboard',            [ApiController::class, 'dashboard']);

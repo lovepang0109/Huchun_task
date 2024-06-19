@@ -18,7 +18,6 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/kkk', [HomeController::class, 'kkk']);
 
 Route::get('/api/aaa', [HomeController::class, 'kkk']);
 
