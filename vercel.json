@@ -57,10 +57,10 @@
         "VIEW_COMPILED_PATH": "/tmp/views",
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node",
-        "PROXY_HOST":"51.178.41.85",
+        "PROXY_HOST": "51.178.41.85",
         "PROXY_PORT": "5000",
-        "PROXY_USER":"huchun",
-        "PROXY_PASS":"92kxuG6UITsNpmfN"
+        "PROXY_USER": "huchun",
+        "PROXY_PASS": "92kxuG6UITsNpmfN"
 
     }
 }
