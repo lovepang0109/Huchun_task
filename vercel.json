@@ -10,6 +10,10 @@
             "dest": "public/$1/$2"
         },
         {
+            "src": "/tmp/json/(.*)",
+            "dest": "public/$1/$2"
+        },
+        {
             "src": "/config.js",
             "dest": "public/config.js"
         },
