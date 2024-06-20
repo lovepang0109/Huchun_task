@@ -6,7 +6,7 @@
 <?php  
 	echo "This is laravel first app project";
 
-	// echo $path;
+	echo $path;
 ?>
 
 </h1>

@@ -154,6 +154,9 @@ function loginProcess() {
   loading.value = true;
   store.dispatch('user/auth', { username: userName.value, password: password.value })
     .then((response) => {
+
+      console.log(response);
+      
       let userAbilities = [{ "action": "manage", "subject": "all" }];
       localStorage.setItem('userAbilities', JSON.stringify(userAbilities));
       ability.update(userAbilities)

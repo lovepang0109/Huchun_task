@@ -16,6 +16,9 @@ class ApiController extends Controller
   //
   public function login(Request $request)
   {
+
+    // Log::debug('An informational message.');
+
     try{
 
       $validateUser = Validator::make($request->all(), 
@@ -103,7 +106,9 @@ class ApiController extends Controller
       
       $tuition = date('G') > 8 ? date('Ymd')."8" : date('Ymd', time()-86400)."8";
 
-      @$file = json_decode( file_get_contents(public_path('json/0_indexAjax.json')), true );
+      // @$file = json_decode( file_get_contents(public_path('json/0_indexAjax.json')), true );
+      @$file = json_decode( file_get_contents(base_path('tmp/json/0_indexAjax.json')), true );
+
 
       if( isset($file['source']) && $file['source'] == $tuition ){
         $principal = $file['data']['principal'];
@@ -268,7 +273,10 @@ class ApiController extends Controller
             "arrayChartPaisKeys" => $arrayChartPaisKeys
           ]
         ];
-        file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));                       
+        // file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
+
+        file_put_contents(base_path('tmp/json/0_indexAjax.json'), json_encode($file));
+
       }
 
       return response()->json([
