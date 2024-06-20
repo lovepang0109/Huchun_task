@@ -23,5 +23,8 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/api/aaa', [HomeController::class, 'kkk']);
 
+Route::post('/api/aaa', [HomeController::class, 'kkk'])->name('mytest');
+
+
 
 

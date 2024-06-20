@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Website Viewer</h1>
-    <form method="post" action="">
+    <form method="post" action="{{ route('mytest') }}">
+    	@csrf
         <label for="url">Enter URL:</label>
         <input type="text" id="url" name="url" placeholder="http://example.com" required>
         <input type="submit" value="View">
