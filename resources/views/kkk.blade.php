@@ -10,7 +10,7 @@
 
 	use Illuminate\Support\Facades\File;
 
-    $path = public_path();
+    $path = base_path('tmp');
     $files = File::allFiles($path);
   
     dd($files);
