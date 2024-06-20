@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 
 class HomeController extends Controller
 {
@@ -12,8 +14,24 @@ class HomeController extends Controller
     }
 
      public function kkk(){
-        $base_path =  base_path();
-        return view('kkk', ['path'=>$base_path]);
+
+        $result = $this->visitGoogle();
+        return view('kkk', ['path'=>$result]);
     }
+
+
+    // In your controller or route
+    public function visitGoogle()
+    {
+        $response = Http::get('https://www.google.com');
+
+        // You can now work with the response
+        $statusCode = $response->status();
+        $body = $response->body();
+
+        // For example, you can return the response body
+        return $body;
+    }
+
 
 }
