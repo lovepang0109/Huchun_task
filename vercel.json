@@ -10,8 +10,8 @@
             "dest": "public/$1/$2"
         },
         {
-            "src": "/tmp/json/(.*)",
-            "dest": "tmp/$1/$2"
+            "src": "/tmp/(.*)",
+            "dest": "tmp/$1"
         },
         {
             "src": "/config.js",
