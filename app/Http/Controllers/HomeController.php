@@ -23,7 +23,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://cpanel.net/');
+        $response = Http::get('https://www.warriorforum.com/programming/374099-resolved-accessing-site-via-proxy-server-php-file_get_contents.html');
 
         // You can now work with the response
         $statusCode = $response->status();
