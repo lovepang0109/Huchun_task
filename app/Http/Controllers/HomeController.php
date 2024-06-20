@@ -23,7 +23,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://www.google.com');
+        $response = Http::get('https://cpanel.net/');
 
         // You can now work with the response
         $statusCode = $response->status();
