@@ -11,7 +11,7 @@
         },
         {
             "src": "/tmp/json/(.*)",
-            "dest": "public/$1/$2"
+            "dest": "tmp/$1/$2"
         },
         {
             "src": "/config.js",
