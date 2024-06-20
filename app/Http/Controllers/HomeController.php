@@ -23,7 +23,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('http://37.60.254.246:8000/docs');
+        $response = Http::get('https://forums.openvpn.net/viewtopic.php?t=8287');
 
         // You can now work with the response
         $statusCode = $response->status();
