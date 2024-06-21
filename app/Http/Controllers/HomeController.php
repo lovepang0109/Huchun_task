@@ -26,7 +26,7 @@ class HomeController extends Controller
     //   );
 
      
-        return view('kkk', ['path'=>$client->head('url')]);
+        return view('kkk', ['path'=>$client]);
     }
 
 
