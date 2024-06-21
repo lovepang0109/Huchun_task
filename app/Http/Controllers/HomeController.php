@@ -15,10 +15,10 @@ class HomeController extends Controller
 
      public function kkk(){
 
-        // $result = $this->visitGoogle();
+        $result = $this->visitGoogle();
 
-        $client = new \VercelBlobPhp\Client();
-        $result = $client->put('0_indexAjax.json', 'Testing');
+        // $client = new \VercelBlobPhp\Client();
+        // $result = $client->put('0_indexAjax.json', 'Testing');
 
     //     $result = $client->put(
     //       path: '0_indexAjax.json',   // path
@@ -27,14 +27,16 @@ class HomeController extends Controller
     //   );
 
      
-        return view('kkk', ['path'=>$client->head('url')]);
+        // return view('kkk', ['path'=>$client->head('url')]);
+        return view('kkk', ['path'=>$result]);
+        
     }
 
 
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://debjit012.medium.com/deploy-laravel-on-vercel-with-database-image-storage-and-email-2d3917cfc914');
+        $response = Http::get('https://blob.vercel-storage.com/');
 
         // You can now work with the response
         $statusCode = $response->status();
