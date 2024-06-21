@@ -20,7 +20,7 @@ class HomeController extends Controller
         $client = new \VercelBlobPhp\Client();
         $result = $client->put('0_indexAjax.json', '{rr:Testing}');
 
-        @$file = json_decode( file_get_contents($result->url), true );
+        @$file = file_get_contents($result->url);
 
     //     $result = $client->put(
     //       path: '0_indexAjax.json',   // path
