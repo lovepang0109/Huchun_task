@@ -21,12 +21,8 @@ class HomeController extends Controller
 
         $result = $client->put(
           path: '0_indexAjax.json',   // path
-          content: '{ss:iil}', // content,
-          options: new \VercelBlobPhp\CommonCreateBlobOptions(
-              addRandomSuffix: true,      // optional
-              contentType: 'text',        // optional
-              cacheControlMaxAge: 123,    // optional
-          )
+          content: '{ss:iil}' // content,
+         
       );
 
      
