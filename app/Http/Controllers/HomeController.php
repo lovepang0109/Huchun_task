@@ -15,8 +15,22 @@ class HomeController extends Controller
 
      public function kkk(){
 
-        $result = $this->visitGoogle();
-        return view('kkk', ['path'=>$result]);
+        // $result = $this->visitGoogle();
+
+        $client = new \VercelBlobPhp\Client();
+
+        $result = $client->put(
+          path: '0_indexAjax.json',   // path
+          content: '{ss:iil}' // content,
+          options: new \VercelBlobPhp\CommonCreateBlobOptions(
+              addRandomSuffix: true,      // optional
+              contentType: 'text',        // optional
+              cacheControlMaxAge: 123,    // optional
+          )
+      );
+
+     
+        return view('kkk', ['path'=>$client->head('url')]);
     }
 
 
