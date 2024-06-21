@@ -84,8 +84,7 @@ class Controller extends BaseController
                 "data" => $listadoProveedores
             ];
 
-            // file_put_contents(public_path('json/0_ListarProveedoresDashBoardBulk.json'), json_encode($file));
-            file_put_contents(base_path('tmp/json/0_ListarProveedoresDashBoardBulk.json'), json_encode($file));
+            file_put_contents(public_path('json/0_ListarProveedoresDashBoardBulk.json'), json_encode($file));
 
             
         }
@@ -121,8 +120,7 @@ class Controller extends BaseController
                 "data" => $listadoProveedores
             ];
 
-            // file_put_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
-            file_put_contents(base_path('tmp/json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
+            file_put_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
 
         }
 
@@ -158,8 +156,7 @@ class Controller extends BaseController
                 "data" => $listadoClientes
             ];
             
-            // file_put_contents(public_path('json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
-            file_put_contents(base_path('tmp/json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
+            file_put_contents(public_path('json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
 
             
         }
@@ -196,8 +193,7 @@ class Controller extends BaseController
                 "data" => $listadoClientes
             ];
             
-            // file_put_contents(public_path('json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
-            file_put_contents(base_path('tmp/json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
+            file_put_contents(public_path('json/0_ListarClientesDashBoardBulk.json'), json_encode($file));
 
             
         }
@@ -241,8 +237,7 @@ class Controller extends BaseController
                 "data" => $listadoMasterProveedor
             ];
             
-            // file_put_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
-            file_put_contents(base_path('tmp/json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
+            file_put_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json'), json_encode($file));
 
             
         }        

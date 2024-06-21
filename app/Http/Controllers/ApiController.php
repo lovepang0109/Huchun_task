@@ -273,9 +273,8 @@ class ApiController extends Controller
             "arrayChartPaisKeys" => $arrayChartPaisKeys
           ]
         ];
-        // file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
+        file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
 
-        file_put_contents(base_path('tmp/0_indexAjax.json'), json_encode($file));
 
       }
 
