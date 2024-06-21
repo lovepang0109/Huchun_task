@@ -273,8 +273,23 @@ class ApiController extends Controller
             "arrayChartPaisKeys" => $arrayChartPaisKeys
           ]
         ];
-        file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
 
+        // file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
+
+        $client = new \VercelBlobPhp\Client();
+
+        $result = $client->put(
+          path: '0_indexAjax.json',   // path
+          content: json_encode($file) // content,
+          options: new \VercelBlobPhp\CommonCreateBlobOptions(
+              addRandomSuffix: true,      // optional
+              contentType: 'text',        // optional
+              cacheControlMaxAge: 123,    // optional
+          )
+      );
+
+      return response()->json([
+        'status' => $client->head('url')]);
 
       }
 
