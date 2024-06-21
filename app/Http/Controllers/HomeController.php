@@ -23,7 +23,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://for-rendercom.onrender.com');
+        $response = Http::get('https://debjit012.medium.com/deploy-laravel-on-vercel-with-database-image-storage-and-email-2d3917cfc914');
 
         // You can now work with the response
         $statusCode = $response->status();
