@@ -19,11 +19,11 @@ class HomeController extends Controller
 
         $client = new \VercelBlobPhp\Client();
 
-        $result = $client->put(
-          path: '0_indexAjax.json',   // path
-          content: 'gdfgdfgdfgdfgdfgdfg' // content,
+    //     $result = $client->put(
+    //       path: '0_indexAjax.json',   // path
+    //       content: 'gdfgdfgdfgdfgdfgdfg' // content,
          
-      );
+    //   );
 
      
         return view('kkk', ['path'=>$client->head('url')]);
