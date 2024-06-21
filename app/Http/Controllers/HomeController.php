@@ -18,7 +18,7 @@ class HomeController extends Controller
         $result = $this->visitGoogle();
 
         $client = new \VercelBlobPhp\Client();
-        $result = $client->put('0_indexAjax.json', '{rr:Testing}');
+        $result = $client->put('0_indexAjax.json', '{"name":"John", "age":30, "car":null}');
 
         @$file = json_decode(file_get_contents($result->url), true);
 
