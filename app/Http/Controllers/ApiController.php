@@ -14,6 +14,8 @@ use function PHPSTORM_META\map;
 class ApiController extends Controller
 {
   //
+  public $indexAjax_json_file = '';
+  
   public function login(Request $request)
   {
 
@@ -107,7 +109,7 @@ class ApiController extends Controller
       $tuition = date('G') > 8 ? date('Ymd')."8" : date('Ymd', time()-86400)."8";
 
       // @$file = json_decode( file_get_contents(public_path('json/0_indexAjax.json')), true );
-      @$file = json_decode( file_get_contents(base_path('tmp/0_indexAjax.json')), true );
+      @$file = json_decode( file_get_contents($this->indexAjax_json_file), true );
 
 
       if( isset($file['source']) && $file['source'] == $tuition ){
@@ -274,10 +276,11 @@ class ApiController extends Controller
           ]
         ];
 
-        file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
+        // file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
 
-        
-
+        $client = new \VercelBlobPhp\Client();
+        $result = $client->put('0_indexAjax.json', json_encode($file));
+        $this->indexAjax_json_file = $result->url;
       }
 
       return response()->json([

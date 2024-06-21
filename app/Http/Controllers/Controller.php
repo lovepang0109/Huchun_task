@@ -63,7 +63,6 @@ class Controller extends BaseController
     public function getProviderList($username, $password){
 
         // @$file = json_decode(file_get_contents(public_path('json/0_ListarProveedoresDashBoardBulk.json')),true);
-        @$file = json_decode(file_get_contents(base_path('tmp/0_ListarProveedoresDashBoardBulk.json')),true);
 
         if( isset($file['source']) && $file['source'] == date('Ymd') ){
             $listadoProveedores = $file['data'];
@@ -98,7 +97,6 @@ class Controller extends BaseController
     public function getMasterProviderList($username, $password){
 
         // @$file = json_decode(file_get_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json')),true);
-        @$file = json_decode(file_get_contents(base_path('tmp/0_ListarMasterProveedorDashBoardBulk.json')),true);
 
 
         if( isset($file['source']) && $file['source'] == date('Ymd') ){
@@ -133,7 +131,6 @@ class Controller extends BaseController
     public function getCustomerList($username, $password){
 
         // @$file = json_decode(file_get_contents(public_path('json/0_ListarClientesDashBoardBulk.json')), true);
-        @$file = json_decode(file_get_contents(base_path('tmp/0_ListarClientesDashBoardBulk.json')), true);
 
 
         if( isset($file['source']) && $file['source'] == date('Ymd') ){
@@ -170,7 +167,6 @@ class Controller extends BaseController
     public function getDashCustomerList($username, $password){
 
         // @$file = json_decode(file_get_contents(public_path('json/0_ListarClientesDashBoardBulk.json')), true);
-        @$file = json_decode(file_get_contents(base_path('tmp/0_ListarClientesDashBoardBulk.json')), true);
 
 
         if( isset($file['source']) && $file['source'] == date('Ymd') ){
@@ -214,7 +210,6 @@ class Controller extends BaseController
     public function getMasterProviderLists($username, $password){
 
         // @$file = json_decode(file_get_contents(public_path('json/0_ListarMasterProveedorDashBoardBulk.json')), true);
-        @$file = json_decode(file_get_contents(base_path('tmp/0_ListarMasterProveedorDashBoardBulk.json')), true);
 
 
         if( isset($file['source']) && $file['source'] == date('Ymd') ){
