@@ -108,7 +108,7 @@ class ApiController extends Controller
       
       $tuition = date('G') > 8 ? date('Ymd')."8" : date('Ymd', time()-86400)."8";
 
-      // @$file = json_decode( file_get_contents(public_path('json/0_indexAjax.json')), true );
+      @$file = json_decode( file_get_contents(public_path('json/0_indexAjax.json')), true );
       // @$file = json_decode( file_get_contents($this->indexAjax_json_file), true );
 
 
