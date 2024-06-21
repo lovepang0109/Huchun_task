@@ -8,9 +8,11 @@
 <body>
 <?php
 
-echo $path;
+echo dd($path);
 
-
+echo var_dump($path);
  ?>
+
+
 </body>
 </html>
