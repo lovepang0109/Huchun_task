@@ -10,10 +10,10 @@
 
 // echo dd($path);
 
-// echo $path;
+echo $path;
 
 
-echo var_dump($path);
+// echo var_dump($path);
  ?>
 
 
