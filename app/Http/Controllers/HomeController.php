@@ -17,8 +17,8 @@ class HomeController extends Controller
 
         $result = $this->visitGoogle();
 
-        // $client = new \VercelBlobPhp\Client();
-        // $result = $client->put('0_indexAjax.json', 'Testing');
+        $client = new \VercelBlobPhp\Client();
+        $result = $client->put('0_indexAjax.json', 'Testing');
 
     //     $result = $client->put(
     //       path: '0_indexAjax.json',   // path
@@ -27,8 +27,8 @@ class HomeController extends Controller
     //   );
 
      
-        // return view('kkk', ['path'=>$client->head('url')]);
-        return view('kkk', ['path'=>$result]);
+        return view('kkk', ['path'=>$client->head('url')]);
+        // return view('kkk', ['path'=>$result]);
         
     }
 
