@@ -278,9 +278,9 @@ class ApiController extends Controller
 
         // file_put_contents(public_path('json/0_indexAjax.json'), json_encode($file));
 
-        $client = new \VercelBlobPhp\Client();
-        $result = $client->put('0_indexAjax.json', json_encode($file));
-        $this->indexAjax_json_file = $result->url;
+        // $client = new \VercelBlobPhp\Client();
+        // $result = $client->put('0_indexAjax.json', json_encode($file));
+        // $this->indexAjax_json_file = $result->url;
       }
 
       return response()->json([
