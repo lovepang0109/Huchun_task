@@ -20,7 +20,12 @@ class ApiController extends Controller
   {
 
     // Log::debug('An informational message.');
+    return response()->json([
+      'status' => true,
+      'message' => "kkkkk",
+    ]);
 
+    
     try{
 
       $validateUser = Validator::make($request->all(), 
@@ -37,6 +42,8 @@ class ApiController extends Controller
           ], 401);
       }
 
+      
+      
       //WS connect      
       $soap = $this->getSoap();
 
@@ -48,6 +55,9 @@ class ApiController extends Controller
       }
 
       $encPass = md5( $request->password."R2Tr0||D2" );
+
+      
+
 
       $response = $soap->ConsultarLoginDashBoardBulk(["cLogin" => $request->username, "cPassword" => $encPass, "cIP" => $request->ip()]);
 

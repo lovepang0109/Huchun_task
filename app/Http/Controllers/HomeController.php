@@ -15,12 +15,12 @@ class HomeController extends Controller
 
      public function kkk(){
 
-        $result = $this->visitGoogle();
+        // $result = $this->visitGoogle();
 
-        $client = new \VercelBlobPhp\Client();
-        $result = $client->put('0_indexAjax.json', '{"name":"John", "age":30, "car":null}');
+        // $client = new \VercelBlobPhp\Client();
+        // $result = $client->put('0_indexAjax.json', '{"name":"John", "age":30, "car":null}');
 
-        @$file = json_decode(file_get_contents($result->url), true);
+        // @$file = json_decode(file_get_contents($result->url), true);
 
     //     $result = $client->put(
     //       path: '0_indexAjax.json',   // path
@@ -29,7 +29,7 @@ class HomeController extends Controller
     //   );
 
      
-        return view('kkk', ['path'=>$file]);
+        return view('kkk', ['path'=>"ssssss"]);
         // return view('kkk', ['path'=>$result]);
 
     }

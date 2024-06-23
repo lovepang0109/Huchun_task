@@ -75,6 +75,8 @@ const actions = {
             login({ username: username.trim(), password: password }).then(response => {
                 
                 const data = response.message;
+                console.log(data);
+                
                 if (response.status) {
                     setAuthName(username);
                     setAuthPass(password);
@@ -85,6 +87,7 @@ const actions = {
                     setToken(data.IDCliente)
                     resolve();
                 } else {
+                    console.log('ddddd');
                     reject('Invalid login or password.')
                 }
             }).catch(error => {
