@@ -66,9 +66,9 @@
           </template>
           <template v-slot:item="{ item, index }">
             <tr class="text-left">
-              <td>
-                <VImg v-if="!item.PAIS_DESTINO || item.PAIS_DESTINO == '*'" :max-width="32" :src="`${serverUrl}/flags/0.png`"/>
-                <VImg v-else :max-width="32" :src="`${serverUrl}/flags/${item.PAIS_DESTINO}.png`"/>
+              <td class="flag_country">
+                <VImg v-if="!item.PAIS_DESTINO || item.PAIS_DESTINO == '*'" :min-width="32" :src="`${serverUrl}/flags/0.png`"/>
+                <VImg v-else :min-width="32" :src="`${serverUrl}/flags/${item.PAIS_DESTINO}.png`"/>
                 {{ item.state }}
               </td>
               <td>{{ item.NOMBRE_PROVEEDOR }}</td>
@@ -86,6 +86,38 @@
             </tr>
           </template>
         </v-data-table>
+
+        <!-- <v-table>
+          <thead>
+            <tr>
+              <th colspan="5" class="text-center"></th>
+              <th class="text-center"><span>Price 0</span></th>
+              <th class="text-center"><span>Price 1</span></th>
+              <th class="text-center"><span>Price 2</span></th>
+              <th class="text-center"><span>Price 3</span></th>
+              <th class="text-center"><span>Price 4</span></th>
+              <th class="text-center"><span>Price 5</span></th>
+              <th class="text-center"><span>Price 6</span></th>
+              <th class="text-center"><span>Price 7</span></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-weight-bold" colspan="5">Totals</td>
+              <td class="text-xs-right font-weight-bold">{{getTotalPrices}}</td>
+              <td class="text-xs-right font-weight-bold">{{this.totalprice1}}</td>
+              <td class="text-xs-right font-weight-bold">tttt</td>
+              <td class="text-xs-right font-weight-bold">tttttt</td>
+              <td class="text-xs-right font-weight-bold">ttttttt</td>
+              <td class="text-xs-right font-weight-bold">ttttttt</td>
+              <td class="text-xs-right font-weight-bold">ttttttt</td>
+              <td class="text-xs-right font-weight-bold">ttttttt</td>
+
+            </tr>
+          </tbody>
+        </v-table>  -->
+
       </div>
     </VCard>
   </VCol>    
@@ -121,7 +153,17 @@ export default {
       countryModel: null,
       typeRouteModel: null,
       providerModel: null,
-      connectionData: [],        
+      connectionData: [],
+
+      totalprice0:0,
+      totalprice1:0,        
+      totalprice2:0,        
+      totalprice3:0,        
+      totalprice4:0,        
+      totalprice5:0,        
+      totalprice6:0,        
+      totalprice7:0,        
+
     }
   },
   computed: {
@@ -140,8 +182,26 @@ export default {
     }, 
     getProviders: function(){
       return this.GetPricingCountriesData?.masterProviderList?.map( item => `${item.NOMBRE}[${item.ID_MASTER}]`).splice(0, 50);
-    }   
+    },
+    getTotalPrices: function()   {
+      this.GetPricingCountriesData?.data?.map( (item) => {
+          this.totalprice0 += parseFloat((item.paymentPrices.payment0).slice(0, -4));
+          console.log((item.paymentPrices.payment0).slice(0, -4));
+          this.totalprice1 += parseFloat((item.paymentPrices.payment1).slice(0, -4));
+          this.totalprice2 += parseFloat((item.paymentPrices.payment2).slice(0, -4));
+          this.totalprice3 += parseFloat((item.paymentPrices.payment3).slice(0, -4));
+          this.totalprice4 += parseFloat((item.paymentPrices.payment4).slice(0, -4));
+          this.totalprice5 += parseFloat((item.paymentPrices.payment5).slice(0, -4));
+          this.totalprice6 += parseFloat((item.paymentPrices.payment6).slice(0, -4));
+          this.totalprice7 += parseFloat((item.paymentPrices.payment7).slice(0, -4));
+
+      })
+
+      return this.totalprice0;
+    },
+
   },
+
   mounted() {
 
     this.fetchPricingCountriesData({        
@@ -186,5 +246,24 @@ export default {
 .v-progress-circular {
   margin: 1rem;
 }
+
+.flag_country div:first-child{
+  display: inline-block;
+  vertical-align: middle;
+
+}
+.flag_country span{
+  margin-left:15px;
+}
+
+.flag_country{
+    text-align: left;
+}
+
+
+#providerTable table{
+  width:160% !important;
+}
+
 </style>
   

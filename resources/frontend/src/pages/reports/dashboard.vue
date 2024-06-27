@@ -113,7 +113,7 @@
               <VTable class="text-no-wrap text-center pb-4">
                 <thead class="text-center">
                   <tr>
-                    <th scope="col" class="text-center">Country</th>
+                    <th scope="col" class="text-center">Country </th>
                     <th scope="col" class="text-center">Mensajes Ayer</th>
                     <th scope="col" class="text-center">Promedio Mes</th>
                     <th scope="col" class="text-center">Mensajes Mes</th>                
@@ -121,15 +121,25 @@
                 </thead>
                 <tbody class="text-center">
                   <tr v-for="(item, key) in getCountriMessages" :key="key">
-                    <td>                      
-                      <VImg :max-width="30" class="mx-auto" :src="`${serverUrl}/flags/${item.Pais_Destino}.png`"/>
+                    <td class="flag_country">                      
+                      <VImg :min-width="30" class="mx-auto" :src="`${serverUrl}/flags/${item.Pais_Destino}.png`"/>
                       <span>{{ item.code }}</span>
                     </td>
                     <td>{{ item.Mensajes.toLocaleString("en-US") }}</td>
                     <td>{{ item.PromedioMes }}</td>
                     <td>{{ item.MensajesMes }}</td>
                   </tr>
+
+                  <tr>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">{{ getTotalCountriMessages.Mensajes }}</th>
+                    <th scope="col" class="text-center">{{ (this.total_country_Mensajes.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</th>
+                    <th scope="col" class="text-center">{{ (this.total_country_Mensajes.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}} </th>
+                    
+                  </tr>
+
                 </tbody>
+
               </VTable> 
             </VCol>
 
@@ -163,8 +173,16 @@
                     <td>{{ item.Mensajes }}</td>
                     <td>{{ item.PromedioMes.toLocaleString("en-US") }}</td>
                     <td>{{ item.MensajesMes }}</td>
-                  </tr>               
+                  </tr>    
+                  <tr>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">{{ getTotalProviders.Mensajes }}</th>
+                    <th scope="col" class="text-center">{{ (this.total_provider_values.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</th> 
+                    <th scope="col" class="text-center">{{ (this.total_provider_values.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}} </th> 
+                    
+                  </tr>           
                 </tbody>
+                
               </VTable>               
             </VCol>
 
@@ -186,7 +204,14 @@
                     <td>{{ item.Mensajes }}</td>
                     <td>{{ item.PromedioMes.toLocaleString("en-US") }}</td>
                     <td>{{ item.MensajesMes }}</td>
-                  </tr>              
+                  </tr>  
+                  <tr>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">{{ getTotalCustomers.Mensajes }}</th>
+                    <th scope="col" class="text-center">{{ (this.total_customer_values.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) }}</th>
+                    <th scope="col" class="text-center">{{ (this.total_customer_values.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}} </th>
+                    
+                  </tr>            
                 </tbody>                
               </VTable>               
             </VCol>
@@ -217,7 +242,25 @@ export default{
       isBox: false,
       isDialogVisible: true,
       selectedStat: 'UnSubscribers',  
-      serverUrl: window.configData.APP_BASE_URL,      
+      serverUrl: window.configData.APP_BASE_URL,
+
+      
+      total_country_Mensajes: ({
+        Mensajes: 0,
+        PromedioMes: 0,
+        MensajesMes: 0
+      }),
+      total_provider_values: ({
+        Mensajes: 0,
+        PromedioMes: 0,
+        MensajesMes: 0
+      }),
+      total_customer_values: ({
+        Mensajes: 0,
+        PromedioMes: 0,
+        MensajesMes: 0
+      }),
+
     }
   },
   computed: {
@@ -266,6 +309,28 @@ export default{
       });
     },
 
+  getTotalCountriMessages: function(){
+        this.GetDashData?.countries?.map( (item) => {
+          const today = new Date();
+          
+          const yest = this.GetDashData?.yesterdayCountries;
+          const averageMonth = Math.round( yest[item.Pais_Destino]?.Mensajes/today.getDate()*100 )/100;
+        
+          this.total_country_Mensajes.Mensajes += item.Mensajes;
+          this.total_country_Mensajes.PromedioMes += averageMonth;
+          this.total_country_Mensajes.MensajesMes += yest[item.Pais_Destino]?.Mensajes;
+          
+      });
+
+       return {
+          
+          "Mensajes" : (this.total_country_Mensajes.Mensajes).toLocaleString('en-US', {minimumFractionDigits: 2}) ,
+          "PromedioMes": (this.total_country_Mensajes.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+          "MensajesMes": (this.total_country_Mensajes.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+        }
+    },
+   
+
     getChartLabels: function(){
       return Object.keys( this.GetDashData?.chartCountries || {} );
     },
@@ -312,6 +377,28 @@ export default{
       });
     },
 
+  getTotalProviders: function(){     
+
+      this.GetDashData?.suppliers?.map( (item) => {
+        const today = new Date();
+        const yest = this.GetDashData?.yesterdaySuppliers;
+        const msgMonth = yest[item.IDProveedor]?.Mensajes;
+
+        this.total_provider_values.Mensajes += item.Mensajes;
+        this.total_provider_values.PromedioMes += Math.ceil( msgMonth/today.getDate()*100 )/100;
+        this.total_provider_values.MensajesMes += msgMonth;
+          
+      });
+
+       return {
+          
+          "Mensajes" : (this.total_provider_values.Mensajes).toLocaleString('en-US', {minimumFractionDigits: 2}) ,
+          "PromedioMes": (this.total_provider_values.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+          "MensajesMes": (this.total_provider_values.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+        }
+      
+    },
+
     getCustomers: function(){     
 
       return this.GetDashData?.customers?.map( (item) => {
@@ -328,6 +415,27 @@ export default{
       });
     },
 
+  
+    getTotalCustomers: function(){     
+
+      this.GetDashData?.customers?.map( (item) => {
+        const today = new Date();
+        const yest = this.GetDashData?.yesterdayCustomers;
+        const msgMonth = yest[item.IDCliente]?.Mensajes;
+
+        this.total_customer_values.Mensajes += item.Mensajes;
+        this.total_customer_values.PromedioMes += Math.ceil( msgMonth/today.getDate()*100 )/100;
+        this.total_customer_values.MensajesMes += msgMonth;
+
+      });
+
+      return {
+          
+          "Mensajes" : (this.total_customer_values.Mensajes).toLocaleString('en-US', {minimumFractionDigits: 2}) ,
+          "PromedioMes": (this.total_customer_values.PromedioMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+          "MensajesMes": (this.total_customer_values.MensajesMes).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) ,
+        }
+    },
     
   },
   mounted() {
@@ -335,6 +443,7 @@ export default{
   },  
   methods: {
     ...mapActions(['fetchDashData', ]),    
+     
   },
   watch: {    
 
@@ -349,5 +458,18 @@ export default{
 }
 .v-progress-circular {
   margin: 1rem;
+}
+
+.flag_country div:first-child{
+  display: inline-block;
+  vertical-align: middle;
+
+}
+.flag_country span{
+  margin-left:15px;
+}
+
+.flag_country{
+    text-align: left;
 }
 </style>

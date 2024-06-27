@@ -15,7 +15,7 @@ class HomeController extends Controller
 
      public function kkk(){
 
-        // $result = $this->visitGoogle();
+        $result = $this->visitGoogle();
 
         // $client = new \VercelBlobPhp\Client();
         // $result = $client->put('0_indexAjax.json', '{"name":"John", "age":30, "car":null}');
@@ -29,8 +29,8 @@ class HomeController extends Controller
     //   );
 
      
-        return view('kkk', ['path'=>"ssssss"]);
-        // return view('kkk', ['path'=>$result]);
+        // return view('kkk', ['path'=>"ssssss"]);
+        return view('kkk', ['path'=>$result]);
 
     }
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://blob.vercel-storage.com/');
+        $response = Http::get('https://xdaforums.com/t/topway-ts7-help-me-update-change-rom-please.4382285/');
 
         // You can now work with the response
         $statusCode = $response->status();
