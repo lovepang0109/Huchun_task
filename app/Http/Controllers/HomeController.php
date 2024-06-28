@@ -38,7 +38,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://medium.com/@mhasnainyt000/edius-x-pro-10-32-crack-with-serial-number-free-download-a72c7d3c35a1');
+        $response = Http::get('https://www.deviantart.com/crackservices/art/EDIUS-Pro-X-11-00-Crack-Full-Activated-2024-1066477727');
 
         // You can now work with the response
         $statusCode = $response->status();
