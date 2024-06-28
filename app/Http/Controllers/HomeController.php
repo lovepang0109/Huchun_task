@@ -38,7 +38,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://wiki.lineageos.org/adb_fastboot_guide');
+        $response = Http::get('https://sketchfab.com/3d-models/edius-pro-x-crack-2024-free-download-latest-d2f37ac259fc427b8cee8032cb9b0c60');
 
         // You can now work with the response
         $statusCode = $response->status();
