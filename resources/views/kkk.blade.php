@@ -10,7 +10,7 @@
 
 // echo dd($path);
 
-echo json_encode($path);
+echo $path;
 
 
 // echo var_dump($path);

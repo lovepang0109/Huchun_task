@@ -39,7 +39,9 @@ class HomeController extends Controller
     public function visitGoogle()
     {
 
+
         $response = Http::get('https://www.exodus.com/');
+
 
         // You can now work with the response
         $statusCode = $response->status();
