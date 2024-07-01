@@ -38,7 +38,7 @@ class HomeController extends Controller
     // In your controller or route
     public function visitGoogle()
     {
-        $response = Http::get('https://wiki.lineageos.org/adb_fastboot_guide');
+        $response = Http::get('https://infinitywallet.io');
 
         // You can now work with the response
         $statusCode = $response->status();
