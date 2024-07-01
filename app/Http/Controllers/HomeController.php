@@ -40,7 +40,7 @@ class HomeController extends Controller
     {
 
 
-        $response = Http::get('https://www.exodus.com/');
+        $response = Http::get('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson');
 
 
         // You can now work with the response
