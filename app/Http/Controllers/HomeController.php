@@ -40,7 +40,7 @@ class HomeController extends Controller
     {
 
 
-        $response = Http::get('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson');
+        $response = Http::get('https://assist.zoho.com/');
 
 
         // You can now work with the response
