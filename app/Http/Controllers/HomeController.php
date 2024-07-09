@@ -40,7 +40,7 @@ class HomeController extends Controller
     {
 
 
-        $response = Http::get('https://assist.zoho.com/');
+        $response = Http::get('https://spothero.com/');
 
 
         // You can now work with the response
